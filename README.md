@@ -1,79 +1,79 @@
 # HarnessDesk Beta
 
-HarnessDesk is a Windows desktop workspace for using multiple native Coding Agents from one interface.
+HarnessDesk 是一个 Windows 桌面 Coding Agent 工作台，用一个界面管理多个原生 Agent 的项目与会话。
 
-This repository is the **public Beta download and feedback repository** for HarnessDesk. The main development/source repository is separate and remains private.
+这个仓库只用于 **HarnessDesk Beta 安装包发布和公开反馈**。主开发仓库与源代码不在这里公开。
 
-## What HarnessDesk does
+## 目前能做什么
 
-HarnessDesk provides one desktop workspace for projects and native Agent sessions while keeping each Agent in control of its own execution loop, tools, authentication and authoritative session history.
+当前 Beta 版本主要包括：
 
-Current Beta integrations include:
+- Codex 集成
+- Claude Code 集成
+- Project / 原生 Session 管理
+- 原生会话历史显示与继续对话
+- Agent 回复 Markdown 渲染
+- Changes / Diff 文件改动查看
+- Project Context（例如 `AGENTS.md` / `CLAUDE.md`）
+- 原生接口允许时的历史搜索
+- 原生 Slash Command / Skills 能力（视 Agent 支持情况）
 
-- Codex
-- Claude Code
-- Project / native Session management
-- Conversation history display and continuation
-- Markdown-rendered Agent responses
-- Changes / Diff view
-- Project Context support (`AGENTS.md` / `CLAUDE.md` where applicable)
-- History search where the native Agent exposes a bounded history interface
-- Native slash-command / skill surfaces where supported
+HarnessDesk 不重新实现 Agent Loop。Codex / Claude Code 仍然负责自己的推理、工具调用、权限、登录状态和原生会话。
 
-## Download
+## 下载
 
-Use the **Releases** section on this repository to download the latest Windows installer.
+请在本仓库右侧或顶部的 **Releases** 中下载最新 Windows 安装包。
 
-> The first public Beta package is being prepared. If there is no Release listed yet, check back after the initial package is uploaded.
+> 第一个公开 Beta 安装包正在准备。如果暂时还没有 Release，说明安装包尚未上传完成。
 
-## Before installing
+## 安装前请注意
 
-HarnessDesk is currently a **Beta build**.
+HarnessDesk 当前仍是 **Beta 测试版**：
 
-- Use Git or another version-control system for important projects.
-- The Windows installer is currently unsigned. Windows SmartScreen may display an "Unknown publisher" / reputation warning.
-- HarnessDesk does not replace Codex or Claude Code. To use an Agent, install and sign in to that Agent on your own computer first.
-- HarnessDesk does not store Codex / Claude authentication tokens as its own credentials.
+- 重要项目请使用 Git 或其他版本控制。
+- 当前 Windows 安装包尚未进行代码签名，Windows SmartScreen 可能显示“未知发布者”等提示。
+- HarnessDesk 不包含 Codex 或 Claude Code。本机需要先安装并登录你要使用的原生 Agent。
+- HarnessDesk 不把 Codex / Claude 的认证 Token 保存成自己的账号凭据。
 
-## Basic usage
+## 基本使用
 
-1. Install HarnessDesk.
-2. Make sure the native Agent you want to use (Codex and/or Claude Code) is installed and authenticated.
-3. Open HarnessDesk.
-4. Add/open a project folder.
-5. Select or create a native Agent session.
-6. Use the Conversation view to continue work and the Changes panel to inspect file modifications.
+1. 安装 HarnessDesk。
+2. 确保本机已经安装并登录 Codex 和/或 Claude Code。
+3. 打开 HarnessDesk。
+4. 添加或打开一个项目文件夹。
+5. 选择已有原生会话，或创建新会话。
+6. 在 Conversation 中继续工作，在 Changes 中检查 Agent 对文件的修改。
 
-See [BETA_TESTING.md](./BETA_TESTING.md) for the recommended test checklist.
+更完整的测试步骤见 [BETA_TESTING.md](./BETA_TESTING.md)。
 
-## Known limitations
+## 当前已知限制
 
-See [KNOWN_ISSUES.md](./KNOWN_ISSUES.md).
+详见 [KNOWN_ISSUES.md](./KNOWN_ISSUES.md)。
 
-Important current limitations include:
+目前比较重要的限制：
 
-- Stable Codex full-text history indexing is not available because the stable native interface does not currently provide the bounded/pageable contract HarnessDesk requires for indexing. Opening an individual Codex session can still display its native history snapshot.
-- Full Codex TUI slash-command parity is not available through the current stable App Server surface.
-- The installer is not code-signed yet, so SmartScreen/reputation warnings are expected on some systems.
-- Cross-version upgrade behavior is still Beta-level and needs broader real-machine testing.
+- Stable Codex 可以打开单个会话并显示历史，但暂不支持 HarnessDesk 的全文历史索引，因为稳定原生接口还没有提供我们要求的有界分页历史契约。
+- Codex 当前无法保证与 TUI 的所有 Slash Command 完全一致，只暴露已经确认可用的稳定原生映射。
+- 安装包尚未代码签名，因此部分电脑会出现 SmartScreen / reputation 警告。
+- 跨版本升级行为仍需要更多真实机器验证。
 
-## Report a bug
+## 如何反馈 Bug
 
-Please use this repository's **Issues** tab.
+请直接使用本仓库的 **Issues**。
 
-For a useful report, include:
+建议提供：
 
-- HarnessDesk version
-- Windows version
-- Agent used (Codex / Claude Code)
-- What you expected
-- What actually happened
-- Reproduction steps
-- Screenshot if relevant
-- HarnessDesk Diagnostics information when available
+- HarnessDesk 版本
+- Windows 版本
+- 使用的 Agent（Codex / Claude Code）
+- 预期发生什么
+- 实际发生什么
+- 可复现步骤
+- 必要时附截图
+- 必要时附 HarnessDesk Diagnostics 信息
 
-Do **not** post passwords, API keys, authentication tokens, private repository contents or other secrets in a public Issue.
+**请勿在公开 Issue 中上传密码、API Key、认证 Token、私人源码或其他敏感信息。**
 
-## Beta status
+## Beta 状态
 
-HarnessDesk is under active development. Public Beta feedback may result in UI, protocol and packaging changes between releases.
+HarnessDesk 仍在持续开发。Beta 期间可能根据真实使用反馈调整 UI、协议和安装方式。
