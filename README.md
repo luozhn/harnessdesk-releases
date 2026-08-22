@@ -24,7 +24,7 @@ HarnessDesk 不重新实现 Agent Loop。Codex / Claude Code 仍然负责自己�
 
 请在本仓库右侧或顶部的 **Releases** 中下载 Windows 安装包。
 
-> **当前 `v0.1.0-beta.1` 是首个预览构建。** 我们正在准备 `v0.1.0-beta.2`，补充可点击的原生模型选择和思考强度选择。大规模体验建议等待 Beta 2；Beta 1 保留用于早期构建记录和基础功能测试。
+> **当前推荐 `v0.1.0-beta.2`。** Beta 2 增加了可点击的原生模型选择和思考 / 推理强度选择，并修复了 Windows Release packaging。Beta 1 保留用于早期构建记录和基础功能测试。
 
 ## 安装前请注意
 
